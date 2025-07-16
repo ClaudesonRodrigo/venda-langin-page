@@ -1,0 +1,289 @@
+:root {
+    --primary-color: #0A2540; /* Azul escuro corporativo */
+    --secondary-color: #00D9E1; /* Ciano vibrante para CTAs */
+    --background-color: #FFFFFF;
+    --light-gray-bg: #F6F9FC;
+    --text-color: #525F7F;
+    --heading-color: #0A2540;
+    --white: #FFFFFF;
+
+    /* Define o font-family para todo o projeto */
+    font-family: 'Poppins', sans-serif;
+}
+
+/* --- RESET BÁSICO E CONFIGURAÇÕES GLOBAIS --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+/* --- CABEÇALHO E NAVEGAÇÃO MODERNA --- */
+header {
+    background: var(--white);
+    padding: 1rem 0;
+    border-bottom: 1px solid #E6E6E6;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .logo {
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: var(--heading-color);
+    text-decoration: none;
+    z-index: 10; /* Garante que o logo fique acima do menu mobile */
+}
+
+/* Esconde o botão hamburguer em telas grandes */
+.hamburger {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    cursor: pointer;
+    z-index: 10;
+}
+
+.main-nav a {
+    margin-left: 1.5rem;
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.main-nav a:hover {
+    color: var(--primary-color);
+}
+
+.cta-button-header {
+    background: var(--primary-color);
+    color: var(--white);
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+}
+.cta-button-header:hover {
+    color: var(--white);
+    background: #00529B;
+}
+
+/* --- ESTILOS COMUNS (Títulos, Botões) --- */
+h1, h2 {
+    color: var(--heading-color);
+    line-height: 1.2;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 3rem;
+    /* Tipografia Fluida: se ajusta suavemente ao tamanho da tela */
+    font-size: clamp(1.8rem, 5vw, 2.5rem); 
+}
+
+.cta-button {
+    display: inline-block; /* Necessário para aplicar transform */
+    background: var(--secondary-color);
+    color: var(--primary-color);
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.1rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 15px rgba(0, 217, 225, 0.4);
+}
+
+/* --- SEÇÕES PRINCIPAIS --- */
+section {
+    padding: clamp(3rem, 8vw, 6rem) 0; /* Espaçamento vertical fluido */
+}
+
+.hero {
+    background: var(--light-gray-bg);
+    text-align: center;
+}
+
+.hero h1 {
+    /* Tipografia Fluida para o título principal */
+    font-size: clamp(2rem, 8vw, 3.5rem);
+    margin-bottom: 1rem;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 0 auto 2rem auto;
+}
+
+.target-audience {
+    text-align: center;
+}
+
+/* GRID RESPONSIVO MODERNO: se ajusta sozinho, sem media query! */
+.target-audience .grid {
+    display: grid;
+    /* Cria colunas de no mínimo 200px, e se ajusta para preencher o espaço */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+}
+
+.target-audience .item {
+    background: var(--light-gray-bg);
+    padding: 1.5rem;
+    border-radius: 8px;
+    font-weight: 600;
+    color: var(--heading-color);
+}
+.target-audience .item i {
+    display: block;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+}
+
+.problem-solution .container {
+    display: grid;
+    grid-template-columns: 1fr; /* Começa com 1 coluna (mobile-first) */
+    gap: 3rem;
+    align-items: center;
+}
+.problem-solution h3 {
+    font-size: clamp(1.5rem, 5vw, 1.8rem);
+}
+.problem-solution ul {
+    list-style: none;
+    padding-top: 1rem;
+}
+.problem-solution li {
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+.problem-solution li i {
+    color: var(--secondary-color);
+    margin-right: 0.5rem;
+}
+
+.portfolio {
+    background: var(--light-gray-bg);
+}
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+.portfolio-item {
+    background: var(--white);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+.portfolio-item:hover {
+    transform: translateY(-5px);
+}
+.portfolio-item img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover; /* Garante que a imagem cubra a área sem distorcer */
+    display: block;
+}
+.portfolio-item h3, .portfolio-item p {
+    padding: 1.5rem;
+}
+.portfolio-item p {
+    padding-top: 0;
+}
+
+.contact {
+    background: var(--primary-color);
+    color: var(--white);
+    text-align: center;
+}
+.contact h2, .contact p {
+    color: var(--white);
+}
+
+footer {
+    background: #06182B;
+    color: #A3B3C2;
+    padding: 2rem 1rem;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+/* --- RESPONSIVIDADE (MEDIA QUERIES) --- */
+
+/* A partir de 768px (tablets e desktops) */
+@media (min-width: 768px) {
+    /* Transforma a seção de problema/solução em 2 colunas */
+    .problem-solution .container {
+        grid-template-columns: 1fr 1.5fr;
+        gap: 4rem;
+    }
+}
+
+/* Abaixo de 768px (mobile) */
+@media (max-width: 767px) {
+    /* Mostra o botão hamburguer */
+    .hamburger {
+        display: block;
+    }
+
+    /* Estiliza o menu mobile */
+    .main-nav {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+        background-color: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(5px);
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        
+        /* Começa escondido */
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-100%);
+        transition: transform 0.4s ease, opacity 0.4s ease, visibility 0.4s ease;
+    }
+    
+    /* Quando o menu estiver ativo... */
+    .main-nav.active {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .main-nav a {
+        margin: 0;
+        font-size: 1.5rem;
+    }
+}
