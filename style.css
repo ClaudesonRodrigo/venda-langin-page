@@ -287,3 +287,27 @@ footer {
         font-size: 1.5rem;
     }
 }
+/* --- ESTILOS PARA ANIMAÇÃO DE REVELAR AO ROLAR --- */
+
+/* Estado inicial dos elementos que serão animados */
+.reveal {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+/* Estado final (ativo) que será adicionado via JavaScript */
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Adiciona um pequeno atraso em cada item do portfólio para um efeito "stagger" */
+.portfolio-item:nth-child(1) { transition-delay: 100ms; }
+.portfolio-item:nth-child(2) { transition-delay: 200ms; }
+.portfolio-item:nth-child(3) { transition-delay: 300ms; }
+
+/* Garante que o efeito de transformação do tilt funcione bem */
+.portfolio-item {
+    transform-style: preserve-3d;
+}
